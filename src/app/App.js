@@ -9,19 +9,21 @@ function App () {
 	const [ isLoading, setIsLoading ] = useState(true);
 
 	useEffect(() => {
-		getAllCandidates().then(data => setCandidates(data))
-		setIsLoading(false)
+		getAllCandidates().then(data => {
+			setCandidates(data)
+			setIsLoading(false)
+		})
 	}, [])
 
 	return (
 		<div className="App">
-			<h1 className='app-title'>Candidate Application</h1>
+			<h1 className="app-title">Candidate Application</h1>
 			{
 				isLoading
 					? <div>Loading..</div>
 					: <Candidates candidates={candidates}/>
 			}
-			<footer className='footer'>
+			<footer className="footer">
 				Application made by Silviu Bocsa
 			</footer>
 		</div>
